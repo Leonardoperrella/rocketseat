@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <div id="app">
+      <button class="botao">Clica Aqui!</button>
+    </div>
+    
+    <script>
+      var numbox = 1;
+      var btnElement = document.querySelector('.botao');
+      btnElement.onclick = function(){
+        
+        var containerElement = document.querySelector('#app'); 
+        var divElement = document.createElement('div');
+        divElement.setAttribute('class', 'box'+numbox);
+        
+  
+        containerElement.appendChild(divElement);
+        var boxElement = document.querySelector('.box'+numbox);
+        boxElement.style.width = 100;
+        boxElement.style.height = 100;
+        boxElement.style.backgroundColor = '#f00';
+        
+        numbox +=1;
+
+        boxElement.onmouseover = function(){
+          boxElement.style.backgroundColor = getRandomColor();
+        }
+        
+      }
+      
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        //document.body.style.background = bg;
+        return color;
+      }
+      
+      
+      
+    </script>
+  </body>
+</html>
